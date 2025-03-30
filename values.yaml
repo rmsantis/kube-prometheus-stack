@@ -907,9 +907,9 @@ prometheus:
     disableCompaction: false
     apiserverConfig: {}
     additionalArgs: []
-    scrapeInterval: "10"
-    scrapeTimeout: "30"
-    evaluationInterval: "10"
+    scrapeInterval: 10
+    scrapeTimeout: 30
+    evaluationInterval: 10
     listenLocal: false
     enableAdminAPI: false
     version: ""
