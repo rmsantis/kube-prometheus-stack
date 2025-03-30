@@ -88,7 +88,7 @@ defaultRules:
     kubePrometheusNodeRecording: {}
     kubernetesApps: {}
     kubernetesResources: {}
-    kubernetesStorage: {}
+    kubernetesStorage: {}serviceAcc
     kubernetesSystem: {}
     kubeSchedulerAlerting: {}
     kubeSchedulerRecording: {}
@@ -107,6 +107,7 @@ global:
   rbac:
     create: true
     createAggregateClusterRoles: false
+<<<<<<< HEAD
     pspEnabled: false
     pspAnnotations: {}
   imageRegistry: ""
@@ -1028,3 +1029,6 @@ thanosRuler:
   enabled: false
 cleanPrometheusOperatorObjectNames: false
 extraManifests: []
+=======
+    pspEnabled: false
+>>>>>>> 038aa2a (nuevo)
