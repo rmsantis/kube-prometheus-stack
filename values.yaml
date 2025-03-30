@@ -958,7 +958,7 @@ prometheus:
       outOfOrderTimeWindow: 0s
     walCompression: true
     paused: false
-    replicas:10
+    replicas: 10
     shards: 1
     logLevel: info
     logFormat: logfmt
