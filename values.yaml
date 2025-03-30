@@ -242,7 +242,7 @@ alertmanager:
     alertmanagerConfigMatcherStrategy: {}
     logFormat: logfmt
     logLevel: info
-    replicas: 1
+    replicas: 10
     retention: 120h
     storage: {}
     externalUrl:
@@ -958,7 +958,7 @@ prometheus:
       outOfOrderTimeWindow: 0s
     walCompression: true
     paused: false
-    replicas: 5
+    replicas:10
     shards: 1
     logLevel: info
     logFormat: logfmt
