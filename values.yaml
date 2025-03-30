@@ -907,9 +907,9 @@ prometheus:
     disableCompaction: false
     apiserverConfig: {}
     additionalArgs: []
-    scrapeInterval: ""
-    scrapeTimeout: ""
-    evaluationInterval: ""
+    scrapeInterval: "10"
+    scrapeTimeout: "30"
+    evaluationInterval: "10"
     listenLocal: false
     enableAdminAPI: false
     version: ""
@@ -958,7 +958,7 @@ prometheus:
       outOfOrderTimeWindow: 0s
     walCompression: true
     paused: false
-    replicas: 1
+    replicas: 5
     shards: 1
     logLevel: info
     logFormat: logfmt
