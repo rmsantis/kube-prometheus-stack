@@ -1,18 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kube-prometheus-stack
+  name: stack
   namespace: argocd
   labels:
-    app.kubernetes.io/instance: grafana
+    app.kubernetes.io/instance: prometheus-stack
     app.kubernetes.io/managed-by: argocd
-    app.kubernetes.io/name: grafana
-    app.kubernetes.io/version: 27.8.0
+    app.kubernetes.io/name: prometheus-stack
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: kube-prometheus-stack
+    namespace: stack
     server: https://kubernetes.default.svc
   sources:
     - repoURL: https://prometheus-community.github.io/helm-charts
@@ -20,8 +19,8 @@ spec:
       chart: kube-prometheus-stack
       helm:
         valueFiles:
-        - $values/grafana/values.yaml
-    - repoURL: git@github.com:rmsantis/monitoring.git
+        - $values/values.yaml
+    - repoURL: git@github.com:rmsantis/kube-prometheus-stack.git
       targetRevision: main
       ref: values      
   project: default
