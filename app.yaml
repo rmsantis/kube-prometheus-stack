@@ -32,3 +32,38 @@ spec:
       - CreateNamespace=true
       - ApplyOutOfSyncOnly=true
       - ServerSideApply=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: loki  
+  namespace: argocd
+  labels:
+    app.kubernetes.io/instance: stack
+    app.kubernetes.io/managed-by: argocd
+    app.kubernetes.io/name: stack
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: stack
+    server: https://kubernetes.default.svc
+  sources:
+    - repoURL: https://grafana.github.io/helm-charts
+      targetRevision: 2.10.2
+      chart: loki-stack
+      helm:
+        valueFiles:
+        - $values/values-loki.yaml
+    - repoURL: git@github.com:rmsantis/kube-prometheus-stack.git
+      targetRevision: main
+      ref: values      
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=true
+      - ServerSideApply=true
